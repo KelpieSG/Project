@@ -1,15 +1,16 @@
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <!-- Image and text -->
-
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link active" href="/">Home</a>
-      </li>
-     <li class="nav-item">
-        <a class="nav-link" href="/about">About</a>
-      </li>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/landing">Incident Report System</a>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <% if (currentUser) { %>
+        <!-- User is logged in -->
+        <li class="nav-item">
+          <a class="nav-link" href="/landing">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </li>
+      <% } %>
     </ul>
   </div>
 </nav>

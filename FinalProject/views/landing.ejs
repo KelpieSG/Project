@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Incident Report Landing Page</title>
+</head>
+<body>
+    <%- include('./partials/nav.ejs') %>
+    <div class="container mt-5">
+
+        <div class="text-center mb-4">
+            <img src="/images/Logo.png" alt="Logo" class="img-fluid" style="max-height: 100px;">
+            <h1 class="mt-3">Incident Report System</h1>
+        </div>
+
+        <!-- Button to Create New Incident -->
+        <div class="text-center mb-4">
+            <a href="/add" class="btn btn-primary btn-lg">Create New Incident</a>
+        </div>
+
+        <!-- List of Incidents -->
+        <div>
+            <h2>Active Incidents</h2>
+            <table class="table table-striped table-bordered mt-3">
+                <thead class="thead-dark">
+                    <tr>
+                        <tr>
+                            <th>Location</th>
+                            <th>Type of Incident</th>
+                            <th>Date</th>
+                            <th>Number of People Injured</th>
+                            <th>Actions</th>
+                    </tr>
+                </thead>
+                    <tbody>
+                    <% incidents.forEach(function(incident) { %>
+                    <tr>
+                        <td><%= incident.Location %></td>
+                        <td><%= incident.Incident_Type %></td>
+                        <td><%= incident.Incident_Date %></td>
+                        <td><%= incident.Injury_Count %></td>
+                        <td>
+                        <a href="/edit/<%= incident._id %>" class="btn btn-primary">Edit</a>
+                        <form action="/delete/<%= incident._id %>" method="POST" style="display:inline;" onsubmit="return confirmDelete();">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                        </td>
+                        <script>
+                            function confirmDelete() {
+                                return confirm("Are you sure you want to delete this incident?");
+                            }
+                        </script>
+                    </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,45 +1,21 @@
-<%- include ('partials/header.ejs') %>
-<%- include ('partials/main_nav.ejs') %> 
-<!-- For edit page -->
-<div class="container">
-    <div class="row">
-        <div class="col-md-offset-3 col-md-6">
-            <form class="form" method="post">
+<%- include('partials/nav') %>
+<div class="container mt-5">
+  <h1>Edit Incident</h1>
+  <form action="/edit/<%= incident._id %>" method="POST">
+  <label for="type">Type of Incident:</label>
+  <input type="text" id="type" name="Incident_Type" value="<%= incident.Incident_Type %>" required>
 
-                <div class="form-group">
-                    <label for="UsernameTextField">Name</label>
-                    <input type="text" class="form-control" id="UsernameTextField" placeholder="Enter Name" name="Username" 
-                           value="<%= Incidents.Username %>" required>
-                </div>
+  <label for="location">Location of Incident:</label>
+  <input type="text" id="location" name="Location" value="<%= incident.Location %>" required>
 
-                <div class="form-group">
-                    <label for="LocationTextField">Location</label>
-                    <input type="text" class="form-control" id="LocationTextField" placeholder="Enter Location" name="Location" 
-                           value="<%= Incidents.Location %>" required>
-                </div>
+  <label for="date">Incident Date:</label>
+  <input type="date" id="date" name="Incident_Date" value="<%= incident.Incident_Date.toISOString().slice(0, 10) %>" required>
 
-                <div class="form-group">
-                    <label for="Incident_DateTextField">Date of Incident</label>
-                    <input type="text" class="form-control" id="Incident_DateTextField" placeholder="Enter Date of Incident" 
-                           name="Incident_Date" value="<%= Incidents.Incident_date %>" required>
-                </div>
+  <label for="injury_count">Injury Count:</label>
+  <input type="number" id="injury_count" name="Injury_Count" value="<%= incident.Injury_Count %>" required>
 
-                <div class="form-group">
-                    <label for="Incident_TypeTextField">Type of Incident</label>
-                    <input type="text" class="form-control" id="Incident_TypeTextField" placeholder="Enter Type of Incident" 
-                           name="Incident_Type" value="<%= Incidents.Incident_Type %>" required>
-                </div>
+  <button type="submit">Update Incident</button>
+</form>
 
-                <div class="form-group">
-                    <label for="InjuryCountTextField">Number of People Injured</label>
-                    <input type="number" class="form-control" id="InjuryCountTextField" placeholder="Enter Number of People Injured" 
-                           name="InjuryCount" min="0" value="<%= Incidents.InjuryCount %>" required>
-                </div>
-
-                <button class="btn btn-primary" type="submit">Submit</button>
-            </form>
-        </div>
-    </div>
 </div>
 
-<%- include ('partials/footer.ejs') %>

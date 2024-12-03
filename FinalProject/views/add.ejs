@@ -1,37 +1,21 @@
+<%- include('partials/nav') %>
+<div class="container mt-5">
+  <h1>Add Incident</h1>
+  <form action="/add" method="POST">
 
+  <label for="location">Location of Incident:</label>
+  <input type="text" id="location" name="Location" required>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-offset-3 col-md-6">
-            <form class="form" method="post">
+  <label for="incident_date">Date of Incident:</label>
+  <input type="date" id="incident_date" name="Incident_Date" required>
 
-                <div class="form-group">
-                    <label for="UsernameTextField">Name</label>
-                    <input type="text" class="form-control" id="UsernameTextField" placeholder="Enter Name" name="Username" required>
-                </div>
+  <label for="incident_type">Type of Incident:</label>
+  <input type="text" id="incident_type" name="Incident_Type" required>
 
-                <div class="form-group">
-                    <label for="LocationTextField">Location</label>
-                    <input type="text" class="form-control" id="LocationTextField" placeholder="Enter Location" name="Location" required>
-                </div>
+  <label for="injury_count">Injury Count:</label>
+  <input type="number" id="injury_count" name="Injury_Count" required>
 
-                <div class="form-group">
-                    <label for="Incident_DateTextField">Date of Incident</label>
-                    <input type="date" class="form-control" id="Incident_DateTextField" placeholder="Enter Date of Incident" name="Incident_Date" required>
-                </div>
+  <button type="submit">Add Incident</button>
+</form>
 
-                <div class="form-group">
-                    <label for="Incident_TypeTextField">Type of Incident</label>
-                    <input type="text" class="form-control" id="Incident_TypeTextField" placeholder="Enter Type of Incident" name="Incident_Type" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="InjuryCountTextField">Number of People Injured</label>
-                    <input type="number" class="form-control" id="InjuryCountTextField" placeholder="Enter Number of People Injured" name="InjuryCount" min="0" required>
-                </div>
-
-                <button class="btn btn-primary" type="submit">Submit</button>
-            </form>
-        </div>
-    </div>
 </div>

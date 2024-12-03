@@ -1,19 +1,26 @@
-let mongoose = require('mongoose')
+let mongoose = require('mongoose');
 
-let incidentModel = mongoose.Schema({
-    Username: String,
-    Location: String,
-    Incident_Date: Date,
-    Report_Date: Date,
-    Incident_Type: String,
-    Injury_Count: String},
-{
-    collection: "Reports"
-}
+const incidentSchema = new mongoose.Schema({
+  Location: {
+    type: String,
+    required: true,
+  },
+  Incident_Date: {
+    type: Date,
+    required: true,
+  },
+  Report_Date: {
+    type: Date,
+    default: Date.now,
+  },
+  Incident_Type: {
+    type: String,
+    required: true,
+  },
+  Injury_Count: {
+    type: Number,
+    required: true,
+  },
+});
 
-)
-module.exports = mongoose.model('Incident', incidentModel);
-
-
-
-  
+module.exports = mongoose.model('Incident', incidentSchema);
