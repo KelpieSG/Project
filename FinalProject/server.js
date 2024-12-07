@@ -66,3 +66,4 @@ mongoose.connect(process.env.MONGO_URI, {
 }).catch((error) => {
   console.error('Connection error:', error);
 });
+
